@@ -1,24 +1,6 @@
 const create_user = 'http://dummy.restapiexample.com/api/v1/create';
-//{"name":"test","salary":"123","age":"23"}
-
-
 const get_all_users = 'http://dummy.restapiexample.com/api/v1/employees';
-
 const get_user = 'http://dummy.restapiexample.com/api/v1/employee/';
-
-/*{
-"status": "success",
-"data": [
-	{
-	"id": "1",
-	"employee_name": "Tiger Nixon",
-	"employee_salary": "320800",
-	"employee_age": "61",
-	"profile_image": ""
-	},
-	....
-	]
-}*/
 
 
 const api_getAllEmployees = () => {
@@ -30,9 +12,6 @@ const api_getEmployee = (id) => {
 }
 const api_addNewEmployee = (jsonData) => {
     const headers = new Headers();
-    // headers.append('Accept', 'application/json');
-    // headers.append('Content-Type', 'application/json');
-
 
     return fetch(create_user, {
         headers,
@@ -42,18 +21,6 @@ const api_addNewEmployee = (jsonData) => {
 }
 
 
-// addNewEmployee({ "name": "test", "salary": "123", "age": "23" }).then(response => response.ok ? response.json() : console.log('error!')).then(console.log)
-/*
-<tr>
-                                            <td>1</td>
-                                            <td>James</td>
-                                            <td>24</td>
-                                            <td>40,000 usd</td>
-
-
-                                        </tr>
-
-                                        */
 window.onload = () => {
     const table = document.querySelector('#usersTable').getElementsByTagName('tbody')[0];
     const searchButton = document.querySelector('#searchButton');
