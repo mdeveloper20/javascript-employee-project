@@ -4,20 +4,12 @@ const get_user = 'http://dummy.restapiexample.com/api/v1/employee/';
 
 
 const api_getAllEmployees = () => {
-    return fetch(get_all_users);
 }
 
 const api_getEmployee = (id) => {
-    return fetch(get_user + id)
 }
 const api_addNewEmployee = (jsonData) => {
-    const headers = new Headers();
 
-    return fetch(create_user, {
-        headers,
-        method: 'POST',
-        body: JSON.stringify(jsonData)
-    });
 }
 
 
@@ -31,50 +23,21 @@ window.onload = () => {
 
 
     const addNewRow = (c1, c2, c3, c4) => {
-        const row = table.insertRow();
-        const cell1 = row.insertCell(0);
-        const cell2 = row.insertCell(1);
-        const cell3 = row.insertCell(2);
-        const cell4 = row.insertCell(2);
-
-        cell1.innerHTML = c1;
-        cell2.innerHTML = c2;
-        cell3.innerHTML = c3;
-        cell4.innerHTML = c4;
+        // add new item to the table rows
 
     }
 
     const loadAll = () => {
-        api_getAllEmployees().then(res => res.json()).then(jsonData => {
-            jsonData.data.forEach(user => {
-                addNewRow(user.id, user.employee_name, user.employee_age, user.employee_salary)
-
-            });
-
-
-        })
+        // load all the employees
     }
 
     const onFormSubmitted = (event) => {
-
-        newItemId.innerHTML = "";
-        spinner.classList.remove('d-none');
-        event.preventDefault();
-
-        const name = event.target[0].value;
-        const salary = event.target[1].value;
-        const age = event.target[2].value;
-
-        api_addNewEmployee({ name, age, salary }).then(res => res.json()).then(json => {
-            newItemId.innerHTML = "Done. #" + json.data.id;
-            spinner.classList.add('d-none');
-            addForm.reset()
-        })
+        // send post request to the api and get the new item id
 
 
     }
 
-    loadAll(table);
+    loadAll();
 
     addForm.addEventListener('submit', onFormSubmitted);
 
@@ -82,12 +45,9 @@ window.onload = () => {
 
         table.innerHTML = '';
         if (searchQuery.value) {
-            api_getEmployee(searchQuery.value).then(res => res.json()).then(json => {
-                addNewRow(json.data.id, json.data.employee_name, json.data.employee_age, json.data.employee_salary)
-
-            })
+            // fetch one item from api 
         } else {
-            loadAll(table);
+            loadAll();
         }
 
     }
