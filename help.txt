@@ -1,0 +1,27 @@
+
+Grid system: 
+    - based on flexbox
+    - 6 responsive breakpoints.(xs,sm,md,lg,xl,xxl)
+    - you need to use .container class for parent div
+    - design your layout using .row and .col classes
+    - 12 columns available in each row
+
+
+Card:
+    -.card 
+    -.card-body
+    -.card-title
+
+Form
+    -.form-label
+    -.form-control
+
+Button
+    -.btn
+    -.btn-primary
+    -.btn-secondary
+
+utilities: margin, padding,...
+    -{property}{sides}-{size} = size is between 1-5
+    -mt-3
+    -spacers
