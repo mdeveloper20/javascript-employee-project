@@ -15,6 +15,11 @@ Card:
 Form
     -.form-label
     -.form-control
+Table
+    -.table
+    -.table-striped
+    -.table-dark
+    
 
 Button
     -.btn
